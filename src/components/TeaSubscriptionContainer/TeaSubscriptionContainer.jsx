@@ -6,9 +6,10 @@ const TeaSubscriptionContainer = () => {
     const [subscriptions, setSubscriptions] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState("")
+    const [searchTerm, setSearchTerm] = useState("");
 
-    const fetchSubscriptions = () => {
-        getAllSubscriptions()
+    const fetchSubscriptions = (query = "") => {
+        getAllSubscriptions(query)
             .then((response) => {
                 // console.log("Fetched data:", response);
                 setSubscriptions(response.data);
@@ -18,6 +19,18 @@ const TeaSubscriptionContainer = () => {
                 setError(err.message);
                 setLoading(false);
             })
+    }
+
+    const handleSearch = (e) => {
+        e.preventDefault();
+        setLoading(true);
+        fetchSubscriptions(searchTerm)
+    }
+
+    const handleClearSearch = () => {
+        setSearchTerm("")
+        setLoading(true)
+        fetchSubscriptions()
     }
 
     const toggleStatus = (id, currentStatus) => {
@@ -44,6 +57,14 @@ const TeaSubscriptionContainer = () => {
     return (
         <div className="tea-subscription-container">
             <h2>🫖 Tea Subscriptions</h2>
+            <form onSubmit={handleSearch} className="search-form">
+                <input
+                    type="text"
+                    placeholder="Lookin' for a specific subbie?"
+                    value={searchTerm}
+                    onChange={(e) => setSearchTerm(e.target.value)}
+                />
+            </form>
             <div className="tea-card-wrapper">
                 {subscriptions.map((sub) => (
                 <TeaSubscriptionCard
