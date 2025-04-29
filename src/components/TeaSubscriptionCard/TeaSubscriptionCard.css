@@ -25,7 +25,7 @@
     margin-bottom: 8px;
 }
 
-button {
+/* button {
     background-color: #6C5B7B;
     color: #ffffff;
     padding: 8px 15px;
@@ -38,6 +38,22 @@ button {
 
 button:hover {
     background-color: #a46c8c;
+} */
+
+button {
+    background-color: var(--eucalyptus-green);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: var(--accent-yellow);
+    color: black;
 }
 
 @media (max-width: 1200px) {
