@@ -1,0 +1,21 @@
+.tea-subscription-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+h2 {
+    font-size: 2.5rem;
+    color: #3a3a3a;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.tea-card-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap: 20px;
+    margin-top: 20px;
+}

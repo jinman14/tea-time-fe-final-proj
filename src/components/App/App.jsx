@@ -7,7 +7,7 @@ import './App.css'
 function App() {
   return (
     <div className="App">
-      <h1>🫖 The Koala Tea Control Admin View 🫖</h1>
+      <h1>🌿🐨The Koala Tea Control🐨🌿</h1>
 
       <Routes>
         < Route path="/" element={<TeaSubscriptionContainer />} />

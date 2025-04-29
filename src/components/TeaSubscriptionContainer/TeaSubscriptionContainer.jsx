@@ -1,3 +1,4 @@
+import './TeaSubscriptionContainer.css';
 import React, { useEffect, useState } from "react";
 import TeaSubscriptionCard from "../TeaSubscriptionCard/TeaSubscriptionCard";
 import { getAllSubscriptions, updateSubscription } from "../../services/teaSubscriptionService";
@@ -35,16 +36,23 @@ const TeaSubscriptionContainer = () => {
 
     const toggleStatus = (id, currentStatus) => {
         const updatedStatus = currentStatus === "active" ? "inactive" : "active";
+        // console.log(`Toggling ${id}`)
         updateSubscription(id, { status: updatedStatus })
             .then(() => {
                 setSubscriptions((prevSubscriptions) =>
                     prevSubscriptions.map((sub) =>
-                        sub.id === id ? { ...sub, status: updatedStatus } : sub
+                        sub.id === id ? {
+                            ...sub,
+                            attributes: {
+                                ...sub.attributes,
+                                status: updatedStatus
+                            }
+                        } : sub
                     )
                 );
             })
-            .catch((err) => setError("We had an oopsie on the update."))
-    }
+        .catch((err) => setError("We had an oopsie on the update."));
+    };
 
     useEffect(() => {
         fetchSubscriptions();
@@ -56,11 +64,11 @@ const TeaSubscriptionContainer = () => {
 // console.log(subscriptions)
     return (
         <div className="tea-subscription-container">
-            <h2>🫖 Tea Subscriptions</h2>
+            <h2>🫖 Tea Subscriptions 🫖</h2>
             <form onSubmit={handleSearch} className="search-form">
                 <input
                     type="text"
-                    placeholder="Lookin' for a specific subbie?"
+                    placeholder="Want a specific subbie?"
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
                 />
