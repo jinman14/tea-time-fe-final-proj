@@ -56,11 +56,11 @@ const TeaSubscriptionContainer = () => {
 // console.log(subscriptions)
     return (
         <div className="tea-subscription-container">
-            <h2>🫖 Tea Subscriptions</h2>
+            <h2>🫖 Tea Subscriptions 🫖</h2>
             <form onSubmit={handleSearch} className="search-form">
                 <input
                     type="text"
-                    placeholder="Lookin' for a specific subbie?"
+                    placeholder="Want a specific subbie?"
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
                 />
