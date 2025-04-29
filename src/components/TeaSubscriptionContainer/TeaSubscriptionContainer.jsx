@@ -35,16 +35,23 @@ const TeaSubscriptionContainer = () => {
 
     const toggleStatus = (id, currentStatus) => {
         const updatedStatus = currentStatus === "active" ? "inactive" : "active";
+        // console.log(`Toggling ${id}`)
         updateSubscription(id, { status: updatedStatus })
             .then(() => {
                 setSubscriptions((prevSubscriptions) =>
                     prevSubscriptions.map((sub) =>
-                        sub.id === id ? { ...sub, status: updatedStatus } : sub
+                        sub.id === id ? {
+                            ...sub,
+                            attributes: {
+                                ...sub.attributes,
+                                status: updatedStatus
+                            }
+                        } : sub
                     )
                 );
             })
-            .catch((err) => setError("We had an oopsie on the update."))
-    }
+        .catch((err) => setError("We had an oopsie on the update."));
+    };
 
     useEffect(() => {
         fetchSubscriptions();

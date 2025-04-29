@@ -6,6 +6,10 @@ const TeaSubscriptionCard = ({ subscription, toggleStatus }) => {
     const teaSub = subscription.attributes
     const subId = subscription.id
 
+    const handleStatusToggle = (e) => {
+        e.stopPropagation();
+        toggleStatus(subId, teaSub.status)
+    }
     return (
         <div className="tea-subscription-card">
             <Link to={`/subscriptions/${subId}`} >
@@ -13,7 +17,7 @@ const TeaSubscriptionCard = ({ subscription, toggleStatus }) => {
                 <p>Order delivery: {teaSub.frequency}</p>
                 <p>Subscription status: {teaSub.status}</p>
             </Link>
-            <button onClick={() => toggleStatus(id, teaSub.status)}>
+            <button onClick={handleStatusToggle}>
                 {teaSub.status === "active" ? "Deactivate Subscription" : "Reactivate Subscription"}
             </button>
         </div>
