@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { getSubscriptionById } from "../../services/teaSubscriptionService";
 
 const TeaSubscriptionDetails = () => {
     const { id } = useParams();
+    const navigate = useNavigate();
     const [subscription, setSubscription] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState("");
@@ -33,9 +34,10 @@ console.log(subscription)
                     <p>Customer Address: {subscription.attributes.customer_details.address}</p>
                     <p><strong>Tea: {subscription.attributes.tea_details.name}</strong></p>
                     <p>Brewing Time: {subscription.attributes.tea_details.brew_time}</p>
-                    <p>Brewing Time: {subscription.attributes.tea_details.temperature}</p>
+                    <p>Brewing Temperature: {subscription.attributes.tea_details.temperature} Freedom Degrees</p>
                 </div>
             )}
+            <button onClick={() => navigate("/")}> Click here to go back</button>
         </div>
     )
 }
