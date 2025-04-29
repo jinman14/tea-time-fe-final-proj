@@ -52,7 +52,7 @@ const TeaSubscriptionContainer = () => {
 
     if (loading) return <div>THE KETTLE IS HOT, THE TEAS(ubscriptions) ARE BREWING</div>
 
-    if (error) return <div className="error-message">"Oh fuck."</div>
+    if (error) return <div className="error-message">"Oh no."</div>
 // console.log(subscriptions)
     return (
         <div className="tea-subscription-container">
