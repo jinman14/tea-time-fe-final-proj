@@ -1,3 +1,4 @@
+import "./TeaSubscriptionDetails.css";
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { getSubscriptionById } from "../../services/teaSubscriptionService";
@@ -33,6 +34,7 @@ console.log(subscription)
                     <p>Customer Email: {subscription.attributes.customer_details.email}</p>
                     <p>Customer Address: {subscription.attributes.customer_details.address}</p>
                     <p><strong>Tea: {subscription.attributes.tea_details.name}</strong></p>
+                    <p>Description: {subscription.attributes.tea_details.description}</p>
                     <p>Brewing Time: {subscription.attributes.tea_details.brew_time}</p>
                     <p>Brewing Temperature: {subscription.attributes.tea_details.temperature} Freedom Degrees</p>
                 </div>

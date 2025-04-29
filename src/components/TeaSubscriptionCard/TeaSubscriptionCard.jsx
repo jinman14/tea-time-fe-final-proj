@@ -1,11 +1,23 @@
 import './TeaSubscriptionCard.css';
 import React from "react";
 import { Link } from "react-router-dom";
+import bagOfLeaves from "../../assets/bag_of_tea.jpg";
+import pinkLeaves from "../../assets/pink_leaves.jpeg";
+import leafFellow from "../../assets/tea_fellow.jpeg";
+
 
 const TeaSubscriptionCard = ({ subscription, toggleStatus }) => {
 // console.log(subscription.attributes)
     const teaSub = subscription.attributes
     const subId = subscription.id
+
+    const teaImages = [
+        bagOfLeaves,
+        pinkLeaves,
+        leafFellow
+    ]
+
+    const randomTeaImage = teaImages[Math.floor(Math.random() * teaImages.length)];
 
     const handleStatusToggle = (e) => {
         e.stopPropagation();
@@ -21,6 +33,10 @@ const TeaSubscriptionCard = ({ subscription, toggleStatus }) => {
             <button onClick={handleStatusToggle}>
                 {teaSub.status === "active" ? "Deactivate Subscription" : "Reactivate Subscription"}
             </button>
+
+            <div className="tea-image_wrapper">
+                <img src={randomTeaImage} alt="Tea Item" className="tea-leaf-img" />
+            </div>
         </div>
     )
 }

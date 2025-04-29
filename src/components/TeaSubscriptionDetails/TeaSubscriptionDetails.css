@@ -1,0 +1,50 @@
+.tea_subscription_details {
+    border: 2px solid #6b705c;
+    border-radius: 10px;
+    padding: 20px;
+    max-width: 600px;
+    margin: 40px auto;
+    background-color: #f8f5f2;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.tea_subscription_details h2 {
+    color: #386641;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.tea_subscription_details p {
+    font-size: 16px;
+    margin: 10px 0;
+    line-height: 1.5;
+    color: #333;
+}
+
+.tea_subscription_details strong {
+    color: #bc6c25;
+}
+
+.tea_subscription_details button {
+    margin-top: 20px;
+    padding: 10px 15px;
+    background-color: #6a994e;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.tea_subscription_details button:hover {
+    background-color: #52734d;
+}
+
+.error-message {
+    color: red;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 30px;
+}
