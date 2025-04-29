@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import TeaSubscriptionCard from "./TeaSubscriptionCard";
+import TeaSubscriptionCard from "../TeaSubscriptionCard/TeaSubscriptionCard";
 import { getAllSubscriptions, updateSubscription } from "../../services/teaSubscriptionService";
 
 const TeaSubscriptionContainer = () => {
@@ -9,8 +9,9 @@ const TeaSubscriptionContainer = () => {
 
     const fetchSubscriptions = () => {
         getAllSubscriptions()
-            .then((data) => {
-                setSubscriptions(data.data);
+            .then((response) => {
+                // console.log("Fetched data:", response);
+                setSubscriptions(response.data);
                 setLoading(false);
             })
             .catch((err) => {
@@ -39,7 +40,7 @@ const TeaSubscriptionContainer = () => {
     if (loading) return <div>THE KETTLE IS HOT, THE TEAS(ubscriptions) ARE BREWING</div>
 
     if (error) return <div className="error-message">"Oh fuck."</div>
-
+// console.log(subscriptions)
     return (
         <div className="tea-subscription-container">
             <h2>🫖 Tea Subscriptions</h2>
@@ -48,10 +49,12 @@ const TeaSubscriptionContainer = () => {
                 <TeaSubscriptionCard
                     key={sub.id}
                     subscription={sub}
-                    onToggleStatus={toggleStatus}
+                    toggleStatus={toggleStatus}
                 />
                 ))}
             </div>
         </div>
     )
 }
+
+export default TeaSubscriptionContainer;
