@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import bagOfLeaves from "../../assets/bag_of_tea.jpg";
 import pinkLeaves from "../../assets/pink_leaves.jpeg";
 import leafFellow from "../../assets/tea_fellow.jpeg";
+import realLeaves from "../../assets/real_tea_leaves.png";
 
 
 const TeaSubscriptionCard = ({ subscription, toggleStatus }) => {
@@ -14,7 +15,8 @@ const TeaSubscriptionCard = ({ subscription, toggleStatus }) => {
     const teaImages = [
         bagOfLeaves,
         pinkLeaves,
-        leafFellow
+        leafFellow,
+        realLeaves
     ]
 
     const randomTeaImage = teaImages[Math.floor(Math.random() * teaImages.length)];
