@@ -64,15 +64,18 @@ const TeaSubscriptionContainer = () => {
 // console.log(subscriptions)
     return (
         <div className="tea-subscription-container">
-            <h2>🫖 Tea Subscriptions 🫖</h2>
-            <form onSubmit={handleSearch} className="search-form">
-                <input
-                    type="text"
-                    placeholder="Want a specific subbie?"
-                    value={searchTerm}
-                    onChange={(e) => setSearchTerm(e.target.value)}
-                />
-            </form>
+            <div className="header-row">
+                <h2>🫖 Tea Subscriptions 🫖</h2>
+                <form onSubmit={handleSearch} className="search-form">
+                    <p>Whatcha lookin' for, mate?</p>
+                    <input
+                        type="text"
+                        placeholder="Want a specific subbie?"
+                        value={searchTerm}
+                        onChange={(e) => setSearchTerm(e.target.value)}
+                    />
+                </form>
+            </div>
             <div className="tea-card-wrapper">
                 {subscriptions.map((sub) => (
                 <TeaSubscriptionCard
