@@ -19,7 +19,11 @@ const TeaSubscriptionCard = ({ subscription, toggleStatus }) => {
         realLeaves
     ]
 
-    const randomTeaImage = teaImages[Math.floor(Math.random() * teaImages.length)];
+    // const randomTeaImage = teaImages[Math.floor(Math.random() * teaImages.length)];
+
+    const imageIndex = parseInt(subId, 10) % teaImages.length;
+    const randomTeaImage = teaImages[imageIndex];
+
 
     const handleStatusToggle = (e) => {
         e.stopPropagation();

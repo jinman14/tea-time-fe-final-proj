@@ -28,11 +28,11 @@ const TeaSubscriptionContainer = () => {
         fetchSubscriptions(searchTerm)
     }
 
-    const handleClearSearch = () => {
-        setSearchTerm("")
-        setLoading(true)
-        fetchSubscriptions()
-    }
+    // const handleClearSearch = () => {
+    //     setSearchTerm("")
+    //     setLoading(true)
+    //     fetchSubscriptions()
+    // }
 
     const toggleStatus = (id, currentStatus) => {
         const updatedStatus = currentStatus === "active" ? "inactive" : "active";
